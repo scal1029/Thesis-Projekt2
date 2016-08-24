@@ -1,0 +1,127 @@
+<section ng-controller="ArticlesController">
+  <div class="page-header">
+    <h1>Zeiterfassungsmatrix</h1>
+  </div>
+  <div class="form-group col-md-offset-2 col-md-8" show-errors>
+    <div>
+      <label class="text-muted">Periode</label>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+          </span>
+          <input disabled="disabled" type="text" class="form-control" placeholder="Periode">
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+  </div>
+    <br/>
+  <div class="form-group" show-errors>
+    <div>
+      <label class="text-muted">Projekte</label>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+          </span>
+          <input disabled="disabled" type="text" class="form-control" placeholder="Projekt">
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+  </div>
+    <br/>
+  <div class="form-group" show-errors>
+    <div>
+      <label class="text-muted">Verkaufsprojekte</label>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+          </span>
+          <input disabled="disabled" type="text" class="form-control" placeholder="Verkaufsprojekt">
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+  </div>
+    <br/>
+    <div class="form-group" show-errors>
+      <div>
+        <label class="text-muted">Aktivität</label>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+          </span>
+            <input disabled="disabled" type="text" class="form-control" placeholder="Aktivität">
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+    </div>
+    <br/>
+    <div class="form-group center-block" show-errors>
+      <div class="table-responsive bg-primary">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Datum</th>
+            <th>Stunden</th>
+            <th>Einsatzort</th>
+            <th>Start</th>
+            <th>Ende</th>
+            <th>Kommentar</th>
+            <th>Oppty</th>
+            <th>Projektaufgabe</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr onclick="input" data-toggle="modal" href="#the name for my modal windows">
+            <td>24.08.2016</td>
+            <td>4</td>
+            <td>Office</td>
+            <td>08:00</td>
+            <td>12:00</td>
+            <td></td>
+            <td>1234</td>
+            <td>Mitarbeiter</td>
+          </tr>
+          <tr>
+            <td>25.08.2016</td>
+            <td>6</td>
+            <td>Homeoffice</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    <!--
+  <div class="col-md-12">
+    <form name="articleForm" class="form-horizontal" ng-submit="create(articleForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="title">Title</label>
+          <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="articleForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article title is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  -->
+</section>

@@ -4,7 +4,12 @@
       <fieldset>
         <img class="center-block img-responsive" ng-src="/modules/users/client/img/logo/logo.png"/>
         <alert type="danger" ng-show="error" class="text-center text-danger">
-          <span ng-bind="error"></span>
+          <span>
+            <b>Invalid UserID or Password.<br/>If you forgot your UserID or Password,<br/> contact 911 by:<br/>
+            <a ng-href="mailto:911@ec4u.com"><i href="mailto:911@ec4u.com" class=" text-primary glyphicon glyphicon-envelope"></i>
+            Email</a> or <a ng-href="tel:%2B49 72146476911"><i class="text-primary glyphicon glyphicon-phone-alt"></i> Phone</a>
+            </b>
+          </span>
         </alert>
         <div class="form-group" show-errors>
           <div>

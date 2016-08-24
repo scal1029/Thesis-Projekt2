@@ -10,37 +10,43 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         icon:'glyphicon-home',
         colour:'btn-primary btn-lg',
         name:'Home',
-        description:'Benutzer: Admin'
+        description:'Homepage',
+        uisref: 'home'
       },
       {
         icon:'glyphicon-th',
         colour:'btn-primary btn-lg',
         name:'Zeiterfassungsmatrix',
-        description:'Heutiges Datum: 20.10.15'
+        description:'Klassische Zeiterfassung',
+        uisref: 'articles.create'
       },
       {
         icon:'glyphicon-time',
-        colour:'btn-primary btn-lg',
+        colour:'btn-primary btn-lg disabled',
         name:'Zeiterfassungsliste',
-        description:'Aktuelle Uhrzeit: 09:20'
+        description:'Nur Verwaltung und Studenten',
+        uisref: 'home'
       },
       {
         icon:'glyphicon-calendar',
         colour:'btn-primary btn-lg',
         name:'Kalenderansicht',
-        description:'Kalenderwoche: 35'
+        description:'Monats- und Tagesansicht',
+        uisref: 'articles.list'
       },
       {
         icon:'glyphicon-plane',
-        colour:'btn-primary btn-lg',
+        colour:'btn-primary btn-lg disabled',
         name:'Urlaubsanträge',
-        description:'Urlaubstage vorhanden: 2'
+        description:'Funktion nicht aktiv',
+        uisref: 'home'
       },
       {
         icon:'glyphicon-education',
-        colour:'btn-primary btn-lg',
+        colour:'btn-primary btn-lg disabled',
         name:'Schulungsanträge',
-        description:'Schulungstage beantragt: 3'
+        description:'Funktion nicht aktiv',
+        uisref: 'home'
       }
     ];
   }

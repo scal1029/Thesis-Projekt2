@@ -1,4 +1,4 @@
-<div class="container" ng-controller="HeaderController">
+<div class="container-fluid" ng-controller="HeaderController">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
       <span class="sr-only">Toggle navigation</span>
@@ -7,7 +7,8 @@
       <span class="icon-bar"></span>
     </button>
     <a ui-sref="home" class="navbar-brand">
-      <img class="img-responsive" align="top" src="/modules/users/client/img/logo/logonavbar.png"/>
+      <!--<img class="img-responsive" align="top" src="/modules/users/client/img/logo/logonavbar.png"/>-->
+      <img alt="Brand" src="/modules/users/client/img/logo/logonavbar.png">
     </a>
   </div>
   <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
@@ -47,9 +48,11 @@
           <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
             <a ui-sref="settings.password">Change Password</a>
           </li>
+          <!--
           <li ui-sref-active="active">
             <a ui-sref="settings.accounts">Manage Social Accounts</a>
           </li>
+          -->
           <li class="divider"></li>
           <li>
             <a href="/api/auth/signout" target="_self">Signout</a>
