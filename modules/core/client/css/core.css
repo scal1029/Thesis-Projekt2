@@ -35,6 +35,15 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+.cust-briefcase{
+  font-size: 250px;
+}
+
+.checkbox-left{
+  width: 10%;
+  text-align: left;
+}
 body{
   background-color: #F0FAFD;
 }

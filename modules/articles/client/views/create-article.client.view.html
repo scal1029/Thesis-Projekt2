@@ -2,130 +2,117 @@
   <div class="page-header">
     <h1>Zeiterfassungsmatrix</h1>
   </div>
-  <div class="form-group col-md-offset-2 col-md-8" show-errors>
-    <div>
-      <label class="text-muted">Periode</label>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group input-group-lg">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
-          </span>
-          <input disabled="disabled" type="text" class="form-control" placeholder="Periode">
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-  </div>
-    <br/>
-  <div class="form-group" show-errors>
-    <div>
-      <label class="text-muted">Projekte</label>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group input-group-lg">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
-          </span>
-          <input disabled="disabled" type="text" class="form-control" placeholder="Projekt">
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-  </div>
-    <br/>
-  <div class="form-group" show-errors>
-    <div>
-      <label class="text-muted">Verkaufsprojekte</label>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group input-group-lg">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
-          </span>
-          <input disabled="disabled" type="text" class="form-control" placeholder="Verkaufsprojekt">
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-  </div>
-    <br/>
-    <div class="form-group" show-errors>
-      <div>
-        <label class="text-muted">Aktivität</label>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="input-group input-group-lg">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span></button>
-          </span>
-            <input disabled="disabled" type="text" class="form-control" placeholder="Aktivität">
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div>
-    </div>
-    <br/>
 
-  </div>
-    <!--
   <div class="col-md-12">
-    <form name="articleForm" class="form-horizontal" ng-submit="create(articleForm.$valid)" novalidate>
+    <form class="" ng-submit="create(articleForm.$valid)">
       <fieldset>
-        <div class="form-group" show-errors>
-          <label for="title">Title</label>
-          <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
-          <div ng-messages="articleForm.title.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Article title is required.</p>
+        <div class="row">
+          <div class="form-group">
+            <div ng-show="error" class="text-center text-danger">
+              <div class="alert alert-danger" role="alert">
+                <strong ng-bind="error"></strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 text-center">
+            <i class="glyphicon glyphicon-briefcase cust-briefcase" ng-class="{'text-primary': fakultierbar, 'text-danger': !fakultierbar}"></i>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group" show-errors>
+              <label for="verkaufsprojekt">Verkaufsprojekt</label>
+              <input name="verkaufsprojekt" type="text" ng-model="verkaufsprojekt" id="verkaufsprojekt" class="form-control" required>
+              <div ng-messages="articleForm.verkaufsprojekt.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">SalesProject title is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="aktivitaet">Aktivität</label>
+              <input name="aktivitaet" type="text" ng-model="aktivitaet" id="aktivitaet" class="form-control" required>
+              <div ng-messages="articleForm.aktivitaet.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Activity is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="datum">Datum</label>
+              <input name="datum" type="date" ng-model="datum" id="datum" class="form-control" required>
+              <div ng-messages="articleForm.datum.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Date is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="stunden">Stunden</label>
+              <input name="stunden" type="number" ng-model="stunden" id="stunden" class="form-control">
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="content">Content</label>
-          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        <div class="row">
+          <div class="col-sm-6 col-sm-push-6">
+            <div class="form-group" show-errors>
+              <label for="periode">Periode</label>
+              <input name="periode" type="text" ng-model="periode" id="periode" class="form-control" required>
+              <div ng-messages="articleForm.periode.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Period is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="projekt">Projekt</label>
+              <input name="projekt" type="text" ng-model="projekt" id="projekt" class="form-control" required>
+              <div ng-messages="articleForm.projekt.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Project is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="typ">Typ</label>
+              <input name="typ" type="text" ng-model="typ" id="typ" class="form-control" required>
+              <div ng-messages="articleForm.typ.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Type is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="projektaufgabe">Aufgabe</label>
+              <input name="projektaufgabe" type="text" ng-model="projektaufgabe" id="projektaufgabe" class="form-control" required>
+              <div ng-messages="articleForm.projektaufgabe.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Task is required.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-sm-pull-6">
+            <div class="form-group" show-errors>
+              <label for="oppty">Oppty</label>
+              <input name="oppty" type="text" ng-model="oppty" id="oppty" class="form-control" required>
+              <div ng-messages="articleForm.oppty.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Oppty is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="einsatzort">Einsatzort</label>
+              <input name="einsatzort" type="text" ng-model="einsatzort" id="einsatzort" class="form-control" required>
+              <div ng-messages="articleForm.einsatzort.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Workplace is required.</p>
+              </div>
+            </div>
+            <div class="form-group" show-errors>
+              <label for="kommentar">Kommentar</label>
+              <input name="kommentar" type="text" ng-model="kommentar" id="kommentar" class="form-control">
+            </div>
+            <div class="form-group" show-errors>
+              <label for="fakultierbar">Fakultierbar</label>
+              <input name="fakultierbar" type="checkbox" ng-model="fakultierbar" id="fakultierbar" class="form-control checkbox-left">
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-default">
-        </div>
-        <div ng-show="error" class="text-danger">
-          <strong ng-bind="error"></strong>
+        <div class="row">
+          <div class="col-sm-6">
+
+          </div>
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-lg btn-success">
+              Speichern & Fenster schließen
+            </button>
+          </div>
         </div>
       </fieldset>
     </form>
   </div>
-  -->
-    </div>
-    <div class="form-group center-block" show-errors>
-      <div class="table-responsive bg-primary">
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Datum</th>
-            <th>Stunden</th>
-            <th>Einsatzort</th>
-            <th>Start</th>
-            <th>Ende</th>
-            <th>Kommentar</th>
-            <th>Oppty</th>
-            <th>Projektaufgabe</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr onclick="input" data-toggle="modal" href="#the name for my modal windows">
-            <td>24.08.2016</td>
-            <td>4</td>
-            <td>Office</td>
-            <td>08:00</td>
-            <td>12:00</td>
-            <td></td>
-            <td>1234</td>
-            <td>Mitarbeiter</td>
-          </tr>
-          <tr>
-            <td>25.08.2016</td>
-            <td>6</td>
-            <td>Homeoffice</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    </div>
 
 </section>

@@ -1,15 +1,16 @@
 <div ng-controller="AuthenticationController">
   <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4 login-form-bg">
-    <form name="userForm" ng-submit="signin(userForm.$valid)" class="signin" novalidate autocomplete="off">
+    <form name="userForm" ng-submit="signin(userForm.$valid)"
+          class="signin" novalidate autocomplete="off">
       <fieldset>
-        <!--img class="center-block img-responsive" ng-src="/modules/users/client/img/logo/Logo.png"/-->
         <img class="center-block img-responsive" src="http://fs5.directupload.net/images/160920/5s9wuqxj.png"/>
-
         <alert type="danger" ng-show="error" class="text-center text-danger">
           <span>
-            <b>Invalid UserID or Password.<br/>If you forgot your UserID or Password,<br/> contact 911 by:<br/>
-            <a ng-href="mailto:911@ec4u.com"><i href="mailto:911@ec4u.com" class=" text-primary glyphicon glyphicon-envelope"></i>
-            Email</a> or <a ng-href="tel:%2B49 72146476911"><i class="text-primary glyphicon glyphicon-phone-alt"></i> Phone</a>
+            <b>Invalid UserID or Password.<br/>Falls UserId oder Passwort vergessen wurden,<br/> kontaktieren sie 911 durch:<br/>
+            <a ng-href="mailto:911@ec4u.com">
+              <i href="mailto:911@ec4u.com" class="text-primary glyphicon glyphicon-envelope"></i>
+            Email</a> oderr <a ng-href="tel:%2B49 72146476911">
+                <i class="text-primary glyphicon glyphicon-phone-alt"></i> Telefon</a>
             </b>
           </span>
         </alert>
@@ -21,7 +22,8 @@
           <span class="input-group-addon" id="basic-userid">
             <i class="text-muted glyphicon glyphicon-user"></i>
           </span>
-            <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="UserID" lowercase required>
+            <input type="text" id="username" name="username" class="form-control"
+                   ng-model="credentials.username" placeholder="UserID" lowercase required>
           </div>
           <div ng-messages="userForm.username.$error" role="alert">
             <p class="help-block error-text" ng-message="required">UserID is required.</p>
@@ -29,13 +31,14 @@
         </div>
         <div class="form-group" show-errors>
           <div>
-            <label class="text-muted" for="password">Password</label>
+            <label class="text-muted" for="password">Passwort</label>
           </div>
           <div class="input-group input-group-lg" show-errors>
           <span class="input-group-addon" id="basic-password">
             <i class="text-muted glyphicon glyphicon-asterisk"></i>
           </span>
-            <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="password" required>
+            <input type="password" id="password" name="password" class="form-control"
+                   ng-model="credentials.password" placeholder="passwort" required>
           </div>
           <div ng-messages="userForm.password.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Password is required.</p>
@@ -43,12 +46,12 @@
         </div>
         <br/>
         <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Einloggen</button>
         </div>
         <div class="text-center forgot-password">
-          <a ui-sref="password.forgot">Forgot your password?</a>
+          <a ui-sref="password.forgot">Passwort vergessen?</a>
           &nbsp; or&nbsp;
-          <a ui-sref="authentication.signup">Sign up</a>
+          <a ui-sref="authentication.signup">Registrieren</a>
         </div>
       </fieldset>
     </form>

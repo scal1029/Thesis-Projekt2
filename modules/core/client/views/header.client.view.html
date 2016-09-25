@@ -7,8 +7,6 @@
       <span class="icon-bar"></span>
     </button>
     <a ui-sref="home" class="navbar-brand">
-      <!--<img class="img-responsive" align="top" src="/modules/users/client/img/logo/logonavbar.png"/>>
-      <img alt="Brand" src="/modules/users/client/img/logo/LogoNavbar.png"-->
       <img alt="Brand" src="http://fs5.directupload.net/images/160920/vugbioal.png" />
     </a>
   </div>
@@ -26,11 +24,11 @@
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">Sign Up</a>
+        <a ui-sref="authentication.signup">Registrieren</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Sign In</a>
+        <a ui-sref="authentication.signin">Einloggen</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
@@ -41,13 +39,13 @@
         </a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active">
-            <a ui-sref="settings.profile">Edit Profile</a>
+            <a ui-sref="settings.profile">Profil bearbeiten</a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="settings.picture">Change Profile Picture</a>
+            <a ui-sref="settings.picture">Profilbild ändern</a>
           </li>
           <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-            <a ui-sref="settings.password">Change Password</a>
+            <a ui-sref="settings.password">Passwort ändern</a>
           </li>
           <!--
           <li ui-sref-active="active">
@@ -56,7 +54,7 @@
           -->
           <li class="divider"></li>
           <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
+            <a href="/api/auth/signout" target="_self">Ausloggen</a>
           </li>
         </ul>
       </li>

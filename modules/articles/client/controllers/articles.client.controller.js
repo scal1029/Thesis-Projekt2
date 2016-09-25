@@ -9,16 +9,27 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
     $scope.create = function (isValid) {
       $scope.error = null;
 
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'articleForm');
+      //
+      //if (!isValid) {
+      // $scope.$broadcast('show-errors-check-validity', 'articleForm');
 
-        return false;
-      }
+      // return false;
+      //}//
 
       // Create new Article object
       var article = new Articles({
-        title: this.title,
-        content: this.content
+        period: this.period,
+        projekt: this.projekt,
+        verkaufsprojekt: this.verkaufsprojekt,
+        aktivitaet: this.aktivitaet,
+        typ: this.typ,
+        projektaufgabe: this.projektaufgabe,
+        datum: this.datum,
+        stunden: this.stunden,
+        kommentar: this.kommentar,
+        oppty: this.oppty,
+        einsatzort: this.einsatzort,
+        fakultierbar: this.fakultierbar
       });
 
       // Redirect after save
@@ -26,8 +37,19 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         $location.path('articles/' + response._id);
 
         // Clear form fields
-        $scope.title = '';
-        $scope.content = '';
+        $scope.periode = '';
+        $scope.projekt = '';
+        $scope.verkaufsprojekt = '';
+        $scope.aktivitaet = '';
+        $scope.typ = '';
+        $scope.projektaufgabe = '';
+        $scope.datum = '';
+        $scope.stunden = '';
+        $scope.kommentar = '';
+        $scope.mitarbeiter = '';
+        $scope.oppty = '';
+        $scope.einsatzort = '';
+        $scope.fakultierbar = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
