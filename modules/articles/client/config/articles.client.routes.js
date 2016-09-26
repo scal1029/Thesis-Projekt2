@@ -12,10 +12,7 @@ angular.module('articles').config(['$stateProvider',
       })
       .state('articles.list', {
         url: '',
-        templateUrl: 'modules/articles/client/views/list-articles.client.view.html',
-          data: {
-              roles: ['user', 'admin']
-          }
+        templateUrl: 'modules/articles/client/views/list-articles.client.view.html'
       })
       .state('articles.create', {
         url: '/create',

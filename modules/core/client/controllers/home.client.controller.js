@@ -18,7 +18,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         colour:'btn-primary btn-lg',
         name:'Zeiterfassungsmatrix',
         description:'Klassische Zeiterfassung',
-        uisref: 'articles.create'
+        uisref: 'articles.list'
       },
       {
         icon:'glyphicon-time',
@@ -32,7 +32,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         colour:'btn-primary btn-lg',
         name:'Kalenderansicht',
         description:'Monats- und Tagesansicht',
-        uisref: 'articles.list'
+        uisref: 'articles.create'
       },
       {
         icon:'glyphicon-plane',

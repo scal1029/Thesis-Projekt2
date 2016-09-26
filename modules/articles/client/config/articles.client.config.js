@@ -14,13 +14,14 @@ angular.module('articles').run(['Menus',
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'articles', {
       title: 'Kalenderansicht',
-      state: 'articles.list'
+      state: 'articles.create',
+      roles: ['user']
     });
 
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'articles', {
       title: 'Zeiterfassungsmatrix',
-      state: 'articles.create',
+      state: 'articles.list',
       roles: ['user']
     });
 

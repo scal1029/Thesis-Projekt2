@@ -52,7 +52,7 @@ articlesApp.controller('ArticlesController', ['$scope', '$stateParams', 'Authent
           $scope.ok = function () {
 
 
-              $modalInstance.close($scope.article);
+            $modalInstance.close($scope.article);
 
 
           };
@@ -77,68 +77,56 @@ articlesApp.controller('ArticlesController', ['$scope', '$stateParams', 'Authent
     };
 
     // Remove existing Article
-        this.remove = function (article) {
-          if (article) {
-            article.$remove();
+    this.remove = function (article) {
+      if (article) {
+        article.$remove();
 
-            for (var i in this.articles) {
-              if (this.articles[i] === article) {
-                this.articles.splice(i, 1);
-              }
-            }
-          } else {
-            this.article.$remove(function () {
-
-            });
+        for (var i in this.articles) {
+          if (this.articles[i] === article) {
+            this.articles.splice(i, 1);
           }
-        };
+        }
+      } else {
+        this.article.$remove(function () {
+
+        });
+      }
+    };
 
   }
 ]);
 
-articlesApp.controller('ArticlesCreateController', ['$scope', 'Articles',
-  function ($scope, Articles) {
+articlesApp.controller('ArticlesCreateController', ['$scope', 'Articles', //'Notify',
+  function ($scope, Articles) {//, Notify
 
     // Create new Article
     this.create = function () {
 
-    // Create new Article object
-    var article = new Articles({
-      period: this.period,
-      projekt: this.projekt,
-      verkaufsprojekt: this.verkaufsprojekt,
-      aktivitaet: this.aktivitaet,
-      typ: this.typ,
-      projektaufgabe: this.projektaufgabe,
-      datum: this.datum,
-      stunden: this.stunden,
-      kommentar: this.kommentar,
-      oppty: this.oppty,
-      einsatzort: this.einsatzort,
-      fakultierbar: this.fakultierbar
-    });
+      // Create new Article object
+      var article = new Articles({
+        period: this.period,
+        projekt: this.projekt,
+        verkaufsprojekt: this.verkaufsprojekt,
+        aktivitaet: this.aktivitaet,
+        typ: this.typ,
+        projektaufgabe: this.projektaufgabe,
+        datum: this.datum,
+        stunden: this.stunden,
+        kommentar: this.kommentar,
+        oppty: this.oppty,
+        einsatzort: this.einsatzort,
+        fakultierbar: this.fakultierbar
+      });
 
-    // Redirect after save
-    article.$save(function (response) {
+      // Redirect after save
+      article.$save(function (response) {
 
-      // Clear form fields
-      $scope.periode = '';
-      $scope.projekt = '';
-      $scope.verkaufsprojekt = '';
-      $scope.aktivitaet = '';
-      $scope.typ = '';
-      $scope.projektaufgabe = '';
-      $scope.datum = '';
-      $scope.stunden = '';
-      $scope.kommentar = '';
-      $scope.mitarbeiter = '';
-      $scope.oppty = '';
-      $scope.einsatzort = '';
-      $scope.fakultierbar = '';
-    }, function (errorResponse) {
-      $scope.error = errorResponse.data.message;
-    });
-  };
+      //Notify.sendMsg('NewRecord', {'id': response._id});
+
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };
 
   }
 ]);
