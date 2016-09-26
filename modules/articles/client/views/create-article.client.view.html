@@ -1,10 +1,10 @@
-<section ng-controller="ArticlesController">
-  <div class="page-header">
-    <h1>Zeiterfassungsmatrix</h1>
-  </div>
+<section ng-controller="ArticlesCreateController as articleCrCtrl">
 
-  <div class="col-md-12">
-    <form class="" ng-submit="create(articleForm.$valid)">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Zeiterfassung anlegen</h3>
+  </div>
+  <div class="modal-body">
+    <form name="CreateArticleForm">
       <fieldset>
         <div class="row">
           <div class="form-group">
@@ -15,33 +15,33 @@
             </div>
           </div>
           <div class="col-sm-6 text-center">
-            <i class="glyphicon glyphicon-briefcase cust-briefcase" ng-class="{'text-primary': fakultierbar, 'text-danger': !fakultierbar}"></i>
+            <i class="glyphicon glyphicon-briefcase cust-briefcase" ng-class="{'text-primary': articleCrCtrl.fakultierbar, 'text-danger': !articleCrCtrl.fakultierbar}"></i>
           </div>
           <div class="col-sm-6">
             <div class="form-group" show-errors>
               <label for="verkaufsprojekt">Verkaufsprojekt</label>
-              <input name="verkaufsprojekt" type="text" ng-model="verkaufsprojekt" id="verkaufsprojekt" class="form-control" required>
-              <div ng-messages="articleForm.verkaufsprojekt.$error" role="alert">
+              <input name="verkaufsprojekt" type="text" ng-model="articleCrCtrl.verkaufsprojekt" id="verkaufsprojekt" class="form-control" required>
+              <div ng-messages="CreateArticleForm.verkaufsprojekt.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">SalesProject title is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="aktivitaet">Aktivität</label>
-              <input name="aktivitaet" type="text" ng-model="aktivitaet" id="aktivitaet" class="form-control" required>
-              <div ng-messages="articleForm.aktivitaet.$error" role="alert">
+              <input name="aktivitaet" type="text" ng-model="articleCrCtrl.aktivitaet" id="aktivitaet" class="form-control" required>
+              <div ng-messages="CreateArticleForm.aktivitaet.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Activity is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="datum">Datum</label>
-              <input name="datum" type="date" ng-model="datum" id="datum" class="form-control" required>
-              <div ng-messages="articleForm.datum.$error" role="alert">
+              <input name="datum" type="date" ng-model="articleCrCtrl.datum" id="datum" class="form-control" required>
+              <div ng-messages="CreateArticleForm.datum.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Date is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="stunden">Stunden</label>
-              <input name="stunden" type="number" ng-model="stunden" id="stunden" class="form-control">
+              <input name="stunden" type="number" ng-model="articleCrCtrl.stunden" id="stunden" class="form-control">
             </div>
           </div>
         </div>
@@ -49,29 +49,29 @@
           <div class="col-sm-6 col-sm-push-6">
             <div class="form-group" show-errors>
               <label for="periode">Periode</label>
-              <input name="periode" type="text" ng-model="periode" id="periode" class="form-control" required>
-              <div ng-messages="articleForm.periode.$error" role="alert">
+              <input name="periode" type="text" ng-model="articleCrCtrl.periode" id="periode" class="form-control" required>
+              <div ng-messages="CreateArticleForm.periode.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Period is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="projekt">Projekt</label>
-              <input name="projekt" type="text" ng-model="projekt" id="projekt" class="form-control" required>
-              <div ng-messages="articleForm.projekt.$error" role="alert">
+              <input name="projekt" type="text" ng-model="articleCrCtrl.projekt" id="projekt" class="form-control" required>
+              <div ng-messages="CreateArticleForm.projekt.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Project is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="typ">Typ</label>
-              <input name="typ" type="text" ng-model="typ" id="typ" class="form-control" required>
-              <div ng-messages="articleForm.typ.$error" role="alert">
+              <input name="typ" type="text" ng-model="articleCrCtrl.typ" id="typ" class="form-control" required>
+              <div ng-messages="CreateArticleForm.typ.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Type is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="projektaufgabe">Aufgabe</label>
-              <input name="projektaufgabe" type="text" ng-model="projektaufgabe" id="projektaufgabe" class="form-control" required>
-              <div ng-messages="articleForm.projektaufgabe.$error" role="alert">
+              <input name="projektaufgabe" type="text" ng-model="articleCrCtrl.projektaufgabe" id="projektaufgabe" class="form-control" required>
+              <div ng-messages="CreateArticleForm.projektaufgabe.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Task is required.</p>
               </div>
             </div>
@@ -79,38 +79,41 @@
           <div class="col-sm-6 col-sm-pull-6">
             <div class="form-group" show-errors>
               <label for="oppty">Oppty</label>
-              <input name="oppty" type="text" ng-model="oppty" id="oppty" class="form-control" required>
-              <div ng-messages="articleForm.oppty.$error" role="alert">
+              <input name="oppty" type="text" ng-model="articleCrCtrl.oppty" id="oppty" class="form-control" required>
+              <div ng-messages="CreateArticleForm.oppty.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Oppty is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="einsatzort">Einsatzort</label>
-              <input name="einsatzort" type="text" ng-model="einsatzort" id="einsatzort" class="form-control" required>
-              <div ng-messages="articleForm.einsatzort.$error" role="alert">
+              <input name="einsatzort" type="text" ng-model="articleCrCtrl.einsatzort" id="einsatzort" class="form-control" required>
+              <div ng-messages="CreateArticleForm.einsatzort.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Workplace is required.</p>
               </div>
             </div>
             <div class="form-group" show-errors>
               <label for="kommentar">Kommentar</label>
-              <input name="kommentar" type="text" ng-model="kommentar" id="kommentar" class="form-control">
+              <input name="kommentar" type="text" ng-model="articleCrCtrl.kommentar" id="kommentar" class="form-control">
             </div>
             <div class="form-group" show-errors>
               <label for="fakultierbar">Fakultierbar</label>
-              <input name="fakultierbar" type="checkbox" ng-model="fakultierbar" id="fakultierbar" class="form-control checkbox-left">
+              <input name="fakultierbar" type="checkbox" ng-model="articleCrCtrl.fakultierbar" id="fakultierbar" class="form-control checkbox-left">
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-6">
+      </fieldset>
+    </form>
 
-          </div>
-          <div class="col-sm-6">
-            <button type="submit" class="btn btn-lg btn-success">
-              Speichern & Fenster schließen
-            </button>
-          </div>
-        </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-lg btn-success" ng-click="articleCrCtrl.create();ok()" ng-disabled="CreateArticleForm.$invalid">Anlegen</button>
+    <button class="btn btn-lg btn-warning" ng-click="cancel()">Abbrechen</button>
+  </div>
+
+</section>
+
+
+
       </fieldset>
     </form>
   </div>

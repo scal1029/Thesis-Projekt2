@@ -1,28 +1,113 @@
-<section ng-controller="ArticlesController" ng-init="findOne()">
-  <div class="page-header">
-    <h1>Edit Article</h1>
+<section ng-controller="ArticlesUpdateController as articleUpCtrl">
+
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Update {{article.projekt}} {{article.aktivitaet}}</h3>
   </div>
-  <div class="col-md-12">
-    <form name="articleForm" class="form-horizontal" ng-submit="update(articleForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label for="title">Title</label>
-          <input name="title" type="text" ng-model="article.title" id="title" class="form-control" placeholder="Title" required>
-          <div ng-messages="articleForm.title.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Article title is required.</p>
+  <div class="modal-body">
+      <form name="UpdateArticleForm">
+        <fieldset>
+          <div class="row">
+            <div class="form-group">
+              <div ng-show="error" class="text-center text-danger">
+                <div class="alert alert-danger" role="alert">
+                  <strong ng-bind="error"></strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 text-center">
+              <i class="glyphicon glyphicon-briefcase cust-briefcase" ng-class="{'text-primary': article.fakultierbar, 'text-danger': !article.fakultierbar}"></i>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group" show-errors>
+                <label for="verkaufsprojekt">Verkaufsprojekt</label>
+                <input name="verkaufsprojekt" type="text" ng-model="article.verkaufsprojekt" id="verkaufsprojekt" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.verkaufsprojekt.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">SalesProject title is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="aktivitaet">Aktivität</label>
+                <input name="aktivitaet" type="text" ng-model="article.aktivitaet" id="aktivitaet" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.aktivitaet.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Activity is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="datum">Datum</label>
+                <input name="datum" type="text" ng-model="article.datum" id="datum" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.datum.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Date is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="stunden">Stunden</label>
+                <input name="stunden" type="number" ng-model="article.stunden" id="stunden" class="form-control">
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="content">Content</label>
-          <textarea name="content" ng-model="article.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-        </div>
-        <div class="form-group">
-          <input type="submit" value="Update" class="btn btn-default">
-        </div>
-        <div ng-show="error" class="text-danger">
-          <strong ng-bind="error"></strong>
-        </div>
-      </fieldset>
-    </form>
+          <div class="row">
+            <div class="col-sm-6 col-sm-push-6">
+              <div class="form-group" show-errors>
+                <label for="periode">Periode</label>
+                <input name="periode" type="text" ng-model="article.periode" id="periode" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.periode.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Period is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="projekt">Projekt</label>
+                <input name="projekt" type="text" ng-model="article.projekt" id="projekt" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.projekt.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Project is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="typ">Typ</label>
+                <input name="typ" type="text" ng-model="article.typ" id="typ" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.typ.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Type is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="projektaufgabe">Aufgabe</label>
+                <input name="projektaufgabe" type="text" ng-model="article.projektaufgabe" id="projektaufgabe" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.projektaufgabe.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Task is required.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-sm-pull-6">
+              <div class="form-group" show-errors>
+                <label for="oppty">Oppty</label>
+                <input name="oppty" type="text" ng-model="article.oppty" id="oppty" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.oppty.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Oppty is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="einsatzort">Einsatzort</label>
+                <input name="einsatzort" type="text" ng-model="article.einsatzort" id="einsatzort" class="form-control" required>
+                <div ng-messages="UpdateArticleForm.einsatzort.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Workplace is required.</p>
+                </div>
+              </div>
+              <div class="form-group" show-errors>
+                <label for="kommentar">Kommentar</label>
+                <input name="kommentar" type="text" ng-model="article.kommentar" id="kommentar" class="form-control">
+              </div>
+              <div class="form-group" show-errors>
+                <label for="fakultierbar">Fakultierbar</label>
+                <input name="fakultierbar" type="checkbox" ng-model="article.fakultierbar" id="fakultierbar" class="form-control checkbox-left">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
   </div>
+  <div class="modal-footer">
+    <button class="btn btn-lg btn-success" ng-click="articleUpCtrl.update(article);ok()" ng-disabled="UpdateArticleForm.$invalid">Updaten</button>
+    <button class="btn btn-lg btn-warning" ng-click="cancel()">Abbrechen</button>
+  </div>
+
 </section>

@@ -1,19 +1,84 @@
-<section ng-controller="ArticlesController" ng-init="find()">
+<section ng-controller="ArticlesController as articlesCtrl">
   <div class="page-header">
     <h1>Kalenderansicht</h1>
   </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <div class="input-group input-group-lg">
+        <input ng-model="search.$" type="text" class="form-control" placeholder="Alle Eigenschaften">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            Filtern!
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="input-group input-group-lg">
+        <input ng-model="search.verkaufsprojekt" type="text" class="form-control" placeholder="Verkaufsprojekt">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            Filtern!
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="input-group input-group-lg">
+        <input ng-model="search.aktivitaet" type="text" class="form-control" placeholder="Aktivität">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            Filtern!
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="input-group input-group-lg">
+        <input ng-model="search.datum" type="text" class="form-control" placeholder="Datum">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            Filtern!
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 text-center">
+      <button ng-click="articlesCtrl.modalCreate('lg')" type="button" class="btn btn-success">
+        <i class="glyphicon glyphicon-briefcase"></i> <br>
+        Neue Zeit erfassen!
+      </button>
+    </div>
+  </div>
+  <br>
+  <br>
   <div class="list-group">
-    <a ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})" class="list-group-item">
-      <small class="list-group-item-text">
-        {{article.projekt}}
-        Posted on
-        <span ng-bind="article.created | date:'mediumDate'"></span>
-        by
-        <span ng-bind="article.user.displayName"></span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
-      <p class="list-group-item-text" ng-bind="article.content"></p>
-    </a>
+    <div class="col-sm-4" ng-repeat="article in articlesCtrl.articles | filter:search">
+      <a ng-click="articlesCtrl.modalUpdate('lg', article)" class="list-group-item">
+        <h4 class="cust-list text-center">
+        <i class="glyphicon glyphicon-briefcase" ng-class="{'text-primary': article.fakultierbar, 'text-danger': !article.fakultierbar}"></i>
+        </h4>
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1">
+            <h4><b>VProjekt:</b> {{article.verkaufsprojekt}}</h4>
+            <h4><b>Aktivität:</b> {{article.aktivitaet}}</h4>
+            <h4><b>Datum:</b> <span ng-bind="article.datum | date:'mediumDate'"></span></h4>
+            <h4><b>Stunden:</b> {{article.stunden}}</h4>
+            <small class="list-group-item-text text-muted">
+              <span ng-bind="article.created | date:'mediumDate'"></span>
+              <span class="pull-right">
+                <button class="btn btn-lg btn-danger" ng-click="articlesCtrl.remove(article)">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </button>
+              </span>
+            </small>
+          </div>
+        </div>
+
+
+
+      </a>
+    </div>
   </div>
   <div class="alert alert-warning text-center" ng-if="articles.$resolved && !articles.length">
     No articles yet, why don't you <a ui-sref="articles.create">create one</a>?

@@ -44,6 +44,11 @@ a:hover .header-profile-image {
   width: 10%;
   text-align: left;
 }
+
+.cust-list{
+  font-size: 80px;
+}
+
 body{
   background-color: #F0FAFD;
 }
